@@ -1,0 +1,236 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Vote Best Picture 2019</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'oscars_vote/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'oscars_vote/css/heroic-features.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Best Picture - Oscar Nominees</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link mr-3" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mr-3" href="#footer">Results</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <br>
+  <div class="container">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-primary" role="alert">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %} 
+      <div class="card mx-auto" style="width: 50rem; padding: 1rem;">
+          <h3 class="card-header text-white bg-dark text-center">
+            <strong>Vote for your favorite movie!</strong>
+          </h3>
+            <form method="post">
+              <fieldset class = "form-group">
+                  {% csrf_token %}
+                  {{ movie_form|crispy }}
+              </fieldset>
+              <div class="mx-auto text-center">
+                <input class="btn btn-outline-dark" type="submit" value="Submit Vote!">
+              </div>
+            </form>   
+        </div>  
+
+    </header>
+  
+  <br>
+  <hr>
+
+
+    <!-- Page Features -->
+    <div class="row text-center">
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-80">
+          <img class="card-img-top" src="{% static 'oscars_vote/Roma.png' %}" alt="">
+          <div class="card-body">
+            <span>  Total Votes: </span>
+            <span> <b> {{roma_result}} </b></span>
+            <p></p>
+            <span>  Avg Score (1-10):  </span>
+            <span> <b> {{roma_avg}} </b> </span>
+          </div>
+          <div class="card-footer">
+            <a href="https://en.wikipedia.org/wiki/Roma_(2018_film)" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-80">
+          <img class="card-img-top" src="{% static 'oscars_vote/BlacKkKlansman.png' %}" alt="">
+          <div class="card-body">
+            <span>  Total Votes: </span>
+            <span> <b> {{bklan_result}} </b></span>
+            <p></p>
+            <span>  Avg Score (1-10):  </span>
+            <span> <b> {{bklan_avg}} </b> </span>
+          </div>
+          <div class="card-footer">
+            <a href="https://en.wikipedia.org/wiki/BlacKkKlansman" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-80">
+          <img class="card-img-top" src="{% static 'oscars_vote/Bohemian_Rhapsody_poster.png' %}" alt="">
+          <div class="card-body">
+            <span>  Total Votes: </span>
+            <span> <b> {{brhapsody_result}} </b></span>
+            <p></p>
+            <span>  Avg Score (1-10):  </span>
+            <span> <b> {{brhapsody_avg}} </b> </span>
+          </div>
+          <div class="card-footer">
+            <a href="https://en.wikipedia.org/wiki/Bohemian_Rhapsody_(film)" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-80">
+          <img class="card-img-top" src="{% static 'oscars_vote/favourite.jpg' %}" alt="">
+          <div class="card-body">
+            <span>  Total Votes: </span>
+            <span> <b> {{fav_result}} </b></span>
+            <p></p>
+            <span>  Avg Score (1-10):  </span>
+            <span> <b> {{fav_avg}} </b> </span>
+          </div>
+          <div class="card-footer">
+            <a href="https://en.wikipedia.org/wiki/The_Favourite" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.row -->
+   <div class="row text-center">
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-80">
+          <img class="card-img-top" src="{% static 'oscars_vote/Green_Book.png' %}" alt="">
+          <div class="card-body">
+             <span>  Total Votes: </span>
+            <span> <b> {{gbook_result}} </b></span>
+            <p></p>
+            <span>  Avg Score (1-10):  </span>
+            <span> <b> {{gbook_avg}} </b> </span>
+          </div>
+          <div class="card-footer">
+            <a href="https://en.wikipedia.org/wiki/Green_Book_(film)" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-80">
+          <img class="card-img-top" src="{% static 'oscars_vote/Black_Panther_film_poster.jpg' %}" alt="">
+          <div class="card-body">
+            <span> Total Votes:  </span>
+            <span> <b>{{bp_result}}</b> </span>
+            <p></p>
+            <span> Avg Score (1-10):  </span>
+            <span> <b> {{bp_avg}}</b> </span>
+          </div>
+          <div class="card-footer">
+            <a href="https://en.wikipedia.org/wiki/Black_Panther_(film)" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-80">
+          <img class="card-img-top" src="{% static 'oscars_vote/starborn.png' %}" alt="">
+          <div class="card-body">
+            <span>  Total Votes: </span>
+            <span> <b> {{starborn_result}} </b></span>
+            <p></p>
+            <span>  Avg Score (1-10):  </span>
+            <span> <b> {{starborn_avg}} </b> </span>
+          </div>
+          <div class="card-footer">
+            <a href="https://en.wikipedia.org/wiki/A_Star_Is_Born_(2018_film)" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-80">
+          <img class="card-img-top" src="{% static 'oscars_vote/Vice.png' %}" alt="">
+          <div class="card-body">
+            <span>  Total Votes: </span>
+            <span> <b> {{vice_result}} </b></span>
+            <p></p>
+            <span>  Avg Score (1-10):  </span>
+            <span> <b> {{vice_avg}} </b> </span>
+          </div>
+          <div class="card-footer">
+            <a href="https://en.wikipedia.org/wiki/Vice_(2018_film)" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-2 bg-dark" id="footer">
+    <div class="container">
+      <p class="m-0 text-center text-white">Vote for your favorite Movie</p>
+      <p></p>
+      <p class="m-0 text-center text-white">Created by Jamie Gullbrand - Feb 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'oscars_vote/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'oscars_vote/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+</html>
