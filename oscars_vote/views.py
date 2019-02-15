@@ -3,6 +3,14 @@ from django.contrib import messages
 from .forms import VoteMovie
 from .models import MovieChoice
 from django.db.models import Avg
+from rest_framework import viewsets
+from .serializers import MovieDataSerializer
+
+
+class MovieDataViewSet(viewsets.ReadOnlyModelViewSet):
+	queryset = MovieChoice.objects.all()
+	serializer_class = MovieDataSerializer
+
 
 def index(request):
 	if request.method == "POST":
@@ -52,8 +60,3 @@ def index(request):
 		"roma_avg": roma_avg,
 	}
 	return render(request, "oscars_vote/index.html", context)
-
-def results(request):
-
-	context = {}
-	return render(request, "oscars_vote/results.html", context)
