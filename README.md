@@ -1,4 +1,4 @@
-Django - Boston Picture Project: https://jgbestpicture.herokuapp.com/
+Django - Best Picture Project: https://jgbestpicture.herokuapp.com/
 *Optimized for desktop view.
 - Built with Python/Django, Bootstrap(HTML, CSS, JS), Django Rest Framework (DRF), Heroku, SQLite / Postgres when deployed on Heroku
 
