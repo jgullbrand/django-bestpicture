@@ -1,4 +1,4 @@
-Django - Best Picture Project: https://jgbestpicture.herokuapp.com/
+Django - Oscars 2019 Best Picture Vote: https://jgbestpicture.herokuapp.com/
 *Optimized for desktop view.
 - Built with Python/Django, Bootstrap(HTML, CSS, JS), Django Rest Framework (DRF), Heroku, SQLite / Postgres when deployed on Heroku
 
